@@ -28,19 +28,3 @@ For every given index, i, we will make use of the product of all the numbers to 
   2. We would need two different loops to fill in values for the two arrays. For the array L, L[0] would be 1 since there are no elements to the left of the first element. For the rest of the elements, we simply use L[i] = L[i - 1] * arr[i - 1]. Remember that L[i] represents product of all the elements to the left of element at index i.<br>
   3. For the other array, we do the same thing but in reverse i.e. we start with the initial value of 1 in R[length - 1] where length is the number of elements in the array, and keep updating R[i] in reverse. Essentially, R[i] = R[i + 1] * arr[i + 1]. Remember that R[i] represents product of all the elements to the right of element at index i.<br>
   4. Once we have the two arrays set up properly, we simply iterate over the input array one element at a time, and for each element at index i, we find the product except self as L[i] * R[i].<br>
-
-
-# INPUT FILE AND EXECUTION
-## Input file
-easy=-1, 2, 4, 2, -1<br>
-moderate=1, 2, 3, 4
-## Execution
-Main <path_to_input_file><br>
-<b>For ex:</b><br> 
-Main C:\\\\input.txt<br>
-<b>Output:</b><br>
-QUESTION EASY#1<br>
-Element appear only once in array: 4<br>
-QUESTION MODERATE#1<br>
-{24,12,8,6}
-
