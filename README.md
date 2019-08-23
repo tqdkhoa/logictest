@@ -19,3 +19,11 @@ Output: [24, 12, 8, 6]<br>
 From the example, output[1] = product of all elements in nums except nums[1] which is 1 * 3 * 4 = 12
 
 ## Solution
+
+# Input File and Execution
+## Input file
+easy=-1, 2, 4, 2, -1<br>
+moderate=1, 2, 3, 4
+## Execution
+Main <path_to_input_file><br>
+For ex: Main C:\\input.txt
