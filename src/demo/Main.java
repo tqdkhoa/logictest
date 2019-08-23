@@ -21,14 +21,21 @@ public class Main {
 		String line;
 		ArrayInt easyArr = new ArrayInt();
 		ArrayInt moderateArr = new ArrayInt();
+		boolean isReadEasy = false, isReadModerate = false;
 		try (BufferedReader br = new BufferedReader(new FileReader(args[0]))) {
 			while ((line = br.readLine()) != null) {
 				String[] arrNameValue = line.split("=");
-				if ("easy".equals(arrNameValue[0])) {
+				if ("easy".equals(arrNameValue[0]) && !isReadEasy) {
 					easyArr.setArrInt(parseInputValue(line));
-				} else if ("moderate".equals(arrNameValue[0])) {
+					isReadEasy = true;
+				} else if ("moderate".equals(arrNameValue[0]) && !isReadModerate) {
 					moderateArr.setArrInt(parseInputValue(line));
+					isReadModerate = true;
 				}
+			}
+			if(!isReadEasy || !isReadModerate) {
+				System.out.println("Missing easy or moderate paramter or both !");
+				return;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
