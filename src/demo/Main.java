@@ -6,39 +6,7 @@ import java.io.IOException;
 
 public class Main {
 
-	public int findElementAppearOneTimeInArray(int[] arrInt) {
-		if (arrInt.length == 0) {
-			System.out.println("Array is empty !");
-			return 0;
-		}
-		int xor = arrInt[0];
-		for (int i = 1; i < arrInt.length; i++) {
-			xor ^= arrInt[i];
-		}
-		return xor;
-	}
-
-	public int[] productOfArrayExceptSelf(int[] nums) {
-		int length = nums.length;
-		int[] L = new int[length];
-		int[] R = new int[length];
-		int[] answer = new int[length];
-
-		L[0] = 1;
-		for (int i = 1; i < length; i++) {
-			L[i] = nums[i - 1] * L[i - 1];
-		}
-		R[length - 1] = 1;
-		for (int i = length - 2; i >= 0; i--) {
-			R[i] = nums[i + 1] * R[i + 1];
-		}
-		for (int i = 0; i < length; i++) {
-			answer[i] = L[i] * R[i];
-		}
-		return answer;
-	}
-
-	private int[] parseInputValue(String input) {
+	public static int[] parseInputValue(String input) {
 		int[] values = {};
 		String[] arrNameValue = input.split("=");
 		String[] arrVal = arrNameValue[1].split(",");
@@ -49,17 +17,17 @@ public class Main {
 		return values;
 	}
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		String line;
-		int[] easyArr = {};
-		int[] moderateArr = {};
+		ArrayInt easyArr = new ArrayInt();
+		ArrayInt moderateArr = new ArrayInt();
 		try (BufferedReader br = new BufferedReader(new FileReader(args[0]))) {
 			while ((line = br.readLine()) != null) {
 				String[] arrNameValue = line.split("=");
 				if ("easy".equals(arrNameValue[0])) {
-					easyArr = parseInputValue(line).clone();
+					easyArr.setArrInt(parseInputValue(line));
 				} else if ("moderate".equals(arrNameValue[0])) {
-					moderateArr = parseInputValue(line).clone();
+					moderateArr.setArrInt(parseInputValue(line));
 				}
 			}
 		} catch (IOException e) {
@@ -67,18 +35,18 @@ public class Main {
 			return;
 		}
 
-// 		QUESTION EASY#1
+ 		//QUESTION EASY#1
 		System.out.println("QUESTION EASY#1");
-		int num = findElementAppearOneTimeInArray(easyArr);
+		int num = easyArr.findElementAppearOneTimeInArray();
 		System.out.println("Element appear only once in array: " + num);
 
-// 		QUESTION MODERATE#1
+ 		//QUESTION MODERATE#1
 		System.out.println("QUESTION MODERATE#1");
-		int[] answer = productOfArrayExceptSelf(moderateArr);
+		int[] productArr = moderateArr.productOfArrayExceptSelf();
 		System.out.print("{");
-		for (int i = 0; i < answer.length; i++) {
-			System.out.print(answer[i]);
-			if (i != answer.length - 1) {
+		for (int i = 0; i < productArr.length; i++) {
+			System.out.print(productArr[i]);
+			if (i != productArr.length - 1) {
 				System.out.print(",");
 			}
 		}
