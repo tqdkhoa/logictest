@@ -30,7 +30,7 @@ For every given index, i, we will make use of the product of all the numbers to 
   4. Once we have the two arrays set up properly, we simply iterate over the input array one element at a time, and for each element at index i, we find the product except self as L[i] * R[i]L[i]∗R[i].<br>
 
 
-# Input File and Execution
+# INPUT FILE AND EXECUTION
 ## Input file
 easy=-1, 2, 4, 2, -1<br>
 moderate=1, 2, 3, 4
