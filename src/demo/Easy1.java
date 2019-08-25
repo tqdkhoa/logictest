@@ -4,7 +4,7 @@ public class Easy1 {
 
 	public int easy1(int []nums) {
 		if (nums == null || nums.length == 0) {
-			throw new IllegalArgumentException("Input argument nums must not be empty"); 
+			throw new IllegalArgumentException("Array nums must not be empty"); 
 		}
 		/* We XOR all the elements in array, all the elements which are 
 		 * repeated twice will become 0 and remaining will the element 
