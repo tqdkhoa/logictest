@@ -3,7 +3,10 @@ package demo;
 public class Moderate1 {
 
 	public int[] moderate1(int[] nums) {
-
+		
+		if (nums == null || nums.length == 0) {
+			throw new IllegalArgumentException("Array nums must not be empty"); 
+		}
 		int length = nums.length;
 		/* Initialize three empty arrays with length of given array including 
 		 * L (left) array will contain product of all elements to the left
