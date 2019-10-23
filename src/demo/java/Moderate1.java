@@ -1,4 +1,4 @@
-package demo;
+package demo.java;
 
 public class Moderate1 {
 
